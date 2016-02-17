@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="myPackage" namespace="/myNamespace" extends="struts-default">
+		
+		<!-- 以下的 <global-results> 與 <global-exception-mappings> 適用於此 package 內所 acton -->
+		<!-- 在執行中如果出現 Exception 時會導向根目錄的 error.jsp， 然後由 error.jsp 顯示 500堆疊 -->
+		<!-- 此設定可有可無，不一定要設  -->
+		<global-results>
+			<result name="error">/error.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+
+
+		<action name="myAction" class="com.action.HelloAction">
+			<result name="success">/hello.jsp</result>
+		</action>
+
+	</package>
+
+</struts>
