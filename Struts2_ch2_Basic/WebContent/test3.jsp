@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-branch test
-
+branching test
 </body>
 </html>
