@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    
+       <!--1. 透過 <package> 的設定，以告知 Struts2 我們有那些 Action 可以提供給外界呼叫，
+                    並且可以實現對此 package 中的所有 Action 的統一管理，譬如許可權的控制等  -->
+       <!--2. name="myPackage" 是設定 package 的名稱 -->
+       <!--3. 如果設定了namespace="/myNamespace"，可為該package下的所有 Action 指定共同的命名空間，
+                    那麼存取 myAction 時必須加上 namespace 的名稱，譬如 myNamespace/myAction.action -->
+       <!--4. extends="struts-default"，是指此package要繼承 Struts 2 的預設package名為struts-default 
+                    (該預設package已定義在lib/struts2-core-xxx.jar中的struts-default.xml內) -->
+       <package name="myPackage" namespace="/myNamespace" extends="struts-default">
+		
+               <!--1. 用 <action> 來告知 Struts2 我們有一個業務邏輯單元 Action class 可以讓外界存取 -->
+               <!--2. name="myAction"  是用來設定讓外界呼叫的名稱 -->
+               <!--3. class 則是告訴 Struts2 我們的 Action class 是哪個 class，class 的值一定要是完整的
+                           名稱(也就是 package 路徑加上 class 名稱)。 -->
+               <action name="myAction" class="com.action.HelloAction">
+		   
+	                    <!--1. 每一個 Action 可以配置多個 <result>，每一個 <result> 可以指定一個 view，譬如/hello.jsp -->
+	                    <!--2. name="success"，是用來呼應 Action 中的 String 回傳值-->
+	                    <!--3. name="success"，譬如我們在 Action 的 execute() method 中回傳一個 "success" 的字串，
+	                                 Struts 2 就會到此處找尋是否有符合的 <result name="success"> 可以對應-->
+	                    <!--4. name="success"，是預設，可省略-->
+	                    <result name="success">/hello.jsp</result>
+			
+               </action>
+			
+       </package>
+			
+</struts>

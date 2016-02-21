@@ -4,17 +4,6 @@
 	version="2.4">
 
 	<display-name>Struts2_ch2_Basic</display-name>
-	<servlet>
-		<description>
-		</description>
-		<display-name>TestServlet</display-name>
-		<servlet-name>TestServlet</servlet-name>
-		<servlet-class>com.action.TestServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TestServlet</servlet-name>
-		<url-pattern>/TestServlet</url-pattern>
-	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -26,14 +15,21 @@
 	</welcome-file-list>
 
 
+	<!-- 以下為Struts2核心控制器 StrutsPrepareAndExecuteFilter 的註冊 -->
+	<!-- 1. 這是一個Filter -->
+	<!-- 2. 舊版的 org.apache.struts2.dispatcher.FilterDispatcher 已經停用 -->
+	<!-- 3. 如有多個Filter存在, 請確保StrutsPrepareAndExecuteFilter的設定放在最後 -->
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+		<init-param>
+			<param-name>struts.action.extension</param-name>
+			<param-value>action</param-value>     <!--此處以改action的副檔名為例 (注意預設本來即為.action) -->
+		</init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
 
 </web-app>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    
+	  <!--設定是否為開發模式-->
+	  <!--設定 value="true"時，對於配置文件及JAVA文件的修改，會自動載入更新，不用重新啟動伺服器 -->
+	  <!--預設為false -->
+	  <constant name="struts.devMode" value="true" />
+	
+	  <!--以下設定全域範圍的國際化資源檔，檔名globalMessages起頭，如globalMessages_zh_TW.properties-->
+	  <!--globalMessages名稱可自取 -->
+	  <!--無預設值 -->
+	  <constant name="struts.custom.i18n.resources" value="globalMessages" />
+	
+	
+	  <!--【 ※※ 以下皆保持預設即可 ※※ 】 -->	
+
+	  <!--設置Struts2是否支持動態方法呼叫 -->
+	  <!--預設為true -->
+	  <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+	  <!--更改action的副檔名 -->
+	  <!--預設為.action -->
+	  <constant name="struts.action.extension" value="action" />
+
+	  <!--相當於調用req.setCharacterEncoding("UTF-8")方法 -->
+	  <!--預設為UTF-8 -->
+	  <constant name="struts.i18n.encoding" value="UTF-8" />
+  
+    <!--value可為 xhtml 或 simple 或 css_xhtml --> 
+    <!--預設為xhtml -->
+    <constant name="struts.ui.theme" value="xhtml" />
+     
+
+</struts>
+
+<!-- <constant> 說明 -->
+<!-- 說明1. <constant> 是用來覆寫 Struts2 中的 intelligent defaults (智慧型預設值)，提供事前的預設設定，讓開發者方便系統開發-->
+<!-- 說明2. intelligent defaults(智慧型預設值)可以在 lib/struts2-core-xxx.jar 中的 org.apache.struts2 底下的 default.properties 找到 -->  
