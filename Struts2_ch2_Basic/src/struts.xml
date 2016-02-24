@@ -10,7 +10,7 @@
 	<package name="myPackage" namespace="/myNamespace" extends="struts-default">
 
 		<action name="myAction" class="com.action.HelloAction">
-			<result name="success">/hello.jsp</result>
+			<result name="success">/hello_EL_OGNL2.jsp</result>
 		</action>
 
 	</package>
